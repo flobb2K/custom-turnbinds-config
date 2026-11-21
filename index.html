@@ -13,19 +13,16 @@
   <style>
   
   
-    /*
-		Farbdefinition der Seite.
-    */
-	   
+    /*	Farbdefinition der Seite.		*/
 	   
     :root {
-      --bg: #0f1115;						/* Seitenhintergrund */
-      --surface: #14171c;					/* 1. Grundfarbe */
-	  --surface-2: #1a1d23;					/* 2. Grundfarbe */
-      --code: #272c34;						/* Hintergrundfarbe von Code-Zitaten */
-      --line: #3a414b;						/* Rahmen */
-      --text: #cfd4dc;						/* 1. Textfarbe */
-      --muted: #a6afbd;						/* 2. Textfarbe */
+      --bg: #0f1115;						/*	Seitenhintergrund				*/
+      --surface: #14171c;					/*	1. Grundfarbe					*/
+	  --surface-2: #1a1d23;					/*	2. Grundfarbe					*/
+      --code: #272c34;						/*	Hintergrundfarbe von Code-Zitaten	*/
+      --line: #3a414b;						/*	Rahmen						*/
+      --text: #cfd4dc;						/*	1. Textfarbe					*/
+      --muted: #a6afbd;						/*	2. Textfarbe					*/
 	  --green: #00e676;
 	  --greenbg: #1d583b;
 	  --turquoise: #00e5c3;
@@ -47,19 +44,88 @@
       --shadow: 0 16px 40px rgba(0, 0, 0, .28);
 	
 	
-	/*
-		Farben für Zeile mit Stars / Branches / Latest release / Last change
-	*/
+	/*	Weitere Farben der Seite		*/	 
 	
+	/*	Allgemein		*/
+	  
+      --bg-glow: rgba(214, 239, 74, .14);       	/*	leuchtender Fleck oben links im Hintergrund (rgba = Farbe + Deckkraft)	*/
+      --link: var(--blue);                    	 	/*	Links														*/
+      --link-hover: var(--yellow);          		/*	Links beim Darüberfahren										*/
+      --subtitle: var(--text);                  	/*	Untertitel unter der Hauptüberschrift							*/
+      --ins-underline: var(--muted);             	/*	Unterstreichung bei <ins>										*/
+      --about-text: var(--muted);               	/*	großer Text oben (About)										*/
+      --intro-text: var(--text);                	/*	Einleitungstext												*/
+      --loading-text: var(--muted);             	/*	"wird geladen"-Text											*/
+      --quote-border: var(--line);              	/*	Linie links bei Zitaten										*/
+      --quote-text: var(--muted);               	/*	Text in Zitaten												*/
+
+
+	/*	Code (Inline-Code und Codeblöcke)	*/
+
+      --code-bg: var(--code);
+      --code-border: var(--line);
+
+
+	/*	Sprach-Flaggen		*/
+	  
+      --flag-hover-color: var(--green);			/*	Rahmen der Flagge beim Darüberfahren	*/
+      --flag-selected-color: var(--yellow);		/*	Rahmen der ausgewählten Flagge	*/
+      --flag-focus-outline: var(--line);            	/*	Fokus-Rahmen (Tastatur)							*/
+      --flag-inner-ring: rgba(255, 255, 255, .28);		/*	feiner Innenrand der Flaggen 						*/
+
+
+
+	/*	Demo-GIF-Rahmen	*/
+
+      --media-bg: var(--bg);
+      --media-border: var(--line);
+
+
+	/*	Hinweis-Boxen (> [!NOTE] usw. aus der README)	*/
+
+      --alert-important-bg: var(--orangebg);
+      --alert-important-border: var(--orange);
+      --alert-important-label: var(--orange);
+      --alert-warning-bg: var(--redbg);
+      --alert-warning-border: var(--red);
+      --alert-warning-label: var(--red);
+      --alert-note-bg: var(--purplebg);            	/*	gilt für NOTE und TIP		*/
+      --alert-note-border: var(--purple);
+      --alert-note-label: var(--purple);
+      --alert-caution-bg: var(--yellowbg);
+      --alert-caution-border: var(--yellow);
+      --alert-caution-label: var(--yellow);
+
+
+	/*	Fehlermeldung (README konnte nicht geladen werden)	*/
+
+      --error-bg: var(--redbg);
+      --error-border: var(--red);
+
+
+	/*	Strukturhinweis (falls README-Überschriften fehlen)		*/
+
+      --note-bg: var(--redbg);
+      --note-border: var(--red);
+      --note-text: var(--text);
+
+
+	/*	Favicon (Symbol im Browser-Tab)	*/
+
+      --favicon-bg: var(--bg);
+      --favicon-line: var(--green);
+
+
+	/*	Farben für Zeile mit Stars / Branches / Latest release / Last change	*/
 	
-      --stat-bg-top: var(--surface);			/* Standard für alle 4 Kästchen: Hintergrund oben */
-      --stat-bg-bottom: var(--surface-2);		/* Standard für alle 4 Kästchen: Hintergrund unten (gleicher Wert = einfarbig) */
-      --stat-border: var(--line);               /* Rahmen */
-      --stat-border-hover: var(--green);		/* Rahmen beim Darüberfahren */
-      --stat-label: var(--muted);				/* kleine Beschriftung (STARS ...) */
-      --stat-value: var(--text);				/* Wert (Zahl, Release, Datum) */
-      --stat-pill-border: var(--line);			/* Rahmen der Branch-Namen */
-      --stat-pill-text: var(--text);			/* Text der Branch-Namen */
+      --stat-bg-top: var(--surface);			/*	Standard für alle 4 Kästchen: Hintergrund oben							*/
+      --stat-bg-bottom: var(--surface-2);		/*	Standard für alle 4 Kästchen: Hintergrund unten (gleicher Wert = einfarbig)	*/
+      --stat-border: var(--line);               /*	Rahmen														*/
+      --stat-border-hover: var(--green);		/*	Rahmen beim Darüberfahren										*/
+      --stat-label: var(--muted);				/*	kleine Beschriftung (STARS ...)										*/
+      --stat-value: var(--text);				/*	Wert (Zahl, Release, Datum)										*/
+      --stat-pill-border: var(--line);			/*	Rahmen der Branch-Namen										*/
+      --stat-pill-text: var(--text);			/*	Text der Branch-Namen											*/
 
 
 	/*
@@ -67,7 +133,6 @@
 		1 = Stars, 2 = Branches, 3 = Latest release, 4 = Last change
 		border = Rahmen, bg-top / bg-bottom = Hintergrund oben / unten
 	*/
-
 
       --stat-1-border: var(--stat-border);
       --stat-1-bg-top: var(--stat-bg-top);
@@ -88,130 +153,86 @@
 
 	/*
 		Farben für Feature-Kästchen: Standardwerte für alle Karten
-        Gelten für jede Karte, bei der unten nichts Eigenes steht
-        (auch für Karte 10 und höher).
+		Gelten für jede Karte, bei der unten nichts Eigenes steht
+		(auch für Karte 10 und höher).
 	*/
 
-
-      --card-bg-top: var(--surface);    		/* Hintergrund oben */
-      --card-bg-bottom: var(--surface-2);  		/* Hintergrund unten (gleicher Wert = einfarbig) */
-      --card-border: var(--line);               /* Rahmen */
-      --card-accent: var(--code);				/* Linie oben + Überschrift */
+      --card-bg-top: var(--surface);    		/*	Hintergrund oben						*/
+      --card-bg-bottom: var(--surface-2);  		/*	Hintergrund unten (gleicher Wert = einfarbig)	*/
+      --card-border: var(--line);               /*	Rahmen								*/
+      --card-accent: var(--code);				/*	Linie oben + Überschrift					*/
 
 
 	/*
 		Farben für Feature-Kästchen: einzeln pro Karte
-        accent = Linie oben + Überschrift, border = Rahmen,
-        bg-top / bg-bottom = Hintergrund oben / unten.
+		accent = Linie oben + Überschrift, border = Rahmen,
+		bg-top / bg-bottom = Hintergrund oben / unten.
 	*/
     
-	
-      --card-1-accent: var(--green);
+      --card-1-accent: var(--blue);
       --card-1-border: var(--card-border);
       --card-1-bg-top: var(--card-bg-top);
-      --card-1-bg-bottom: var(--greenbg);
+      --card-1-bg-bottom: var(--bluebg);
 
-      --card-2-accent: var(--green);
+      --card-2-accent: var(--blue);
       --card-2-border: var(--card-border);
       --card-2-bg-top: var(--card-bg-top);
-      --card-2-bg-bottom: var(--greenbg);
+      --card-2-bg-bottom: var(--bluebg);
 
-      --card-3-accent: var(--yellow);
+      --card-3-accent: var(--cyan);
       --card-3-border: var(--card-border);
       --card-3-bg-top: var(--card-bg-top);
-      --card-3-bg-bottom: var(--yellowbg);
+      --card-3-bg-bottom: var(--cyanbg);
 
-      --card-4-accent: var(--yellow);
+      --card-4-accent: var(--cyan);
       --card-4-border: var(--card-border);
       --card-4-bg-top: var(--card-bg-top);
-      --card-4-bg-bottom: var(--yellowbg);
+      --card-4-bg-bottom: var(--cyanbg);
 
-      --card-5-accent: var(--yellow);
+      --card-5-accent: var(--cyan);
       --card-5-border: var(--card-border);
       --card-5-bg-top: var(--card-bg-top);
-      --card-5-bg-bottom: var(--yellowbg);
+      --card-5-bg-bottom: var(--cyanbg);
 
-      --card-6-accent: var(--orange);
+      --card-6-accent: var(--turquoise);
       --card-6-border: var(--card-border);
       --card-6-bg-top: var(--card-bg-top);
-      --card-6-bg-bottom: var(--orangebg);
+      --card-6-bg-bottom: var(--turquoisebg);
 
-      --card-7-accent: var(--orange);
+      --card-7-accent: var(--turquoise);
       --card-7-border: var(--card-border);
       --card-7-bg-top: var(--card-bg-top);
-      --card-7-bg-bottom: var(--orangebg);
+      --card-7-bg-bottom: var(--turquoisebg);
 
-      --card-8-accent: var(--blue);
+      --card-8-accent: var(--green);
       --card-8-border: var(--card-border);
       --card-8-bg-top: var(--card-bg-top);
-      --card-8-bg-bottom: var(--bluebg);
+      --card-8-bg-bottom: var(--greenbg);
 
-      --card-9-accent: var(--blue);
+      --card-9-accent: var(--green);
       --card-9-border: var(--card-border);
       --card-9-bg-top: var(--card-bg-top);
-      --card-9-bg-bottom: var(--bluebg);
+      --card-9-bg-bottom: var(--greenbg);
 
 
-	/*
-		Weitere Farben der Seite
-	*/	 
-	
-	
-	/* Allgemein */
+	/*	Anleitung 		*/
 	  
+      --step-bg: var(--surface-2);			/*	Kreis mit der Schrittnummer	*/
+      --step-text: var(--muted);			/*	Zahl im Kreis				*/
+      --shot-border: var(--line);			/*	Rahmen um Screenshots		*/
+
+
+	/*	Vergleich (Pro / Con)		*/
 	  
-      --bg-glow: rgba(214, 239, 74, .14);       	/* leuchtender Fleck oben links im Hintergrund (rgba = Farbe + Deckkraft) */
-      --link: var(--blue);                    	 	/* Links */
-      --link-hover: var(--yellow);          		/* Links beim Darüberfahren */
-      --subtitle: var(--text);                  	/* Untertitel unter der Hauptüberschrift */
-      --ins-underline: var(--muted);             	/* Unterstreichung bei <ins> */
-      --about-text: var(--muted);               	/* großer Text oben (About) */
-      --intro-text: var(--text);                	/* Einleitungstext */
-      --loading-text: var(--muted);             	/* "wird geladen"-Text */
-      --quote-border: var(--line);              	/* Linie links bei Zitaten */
-      --quote-text: var(--muted);               	/* Text in Zitaten */
-
-
-	/* Code (Inline-Code und Codeblöcke) */
-
-	  
-      --code-bg: var(--code);
-      --code-border: var(--line);
-
-
-	/* Sprach-Flaggen */
-	  
-	  
-      --flag-border-active: var(--yellow);				/* Rahmen der aktiven Flagge und beim Darüberfahren */
-      --flag-focus-outline: var(--line);            	/* Fokus-Rahmen (Tastatur) */
-      --flag-inner-ring: rgba(255, 255, 255, .28);		/* feiner Innenrand der Flaggen */
-
-
-	/*- Demo-GIF-Rahmen */
-	  
-	  
-      --media-bg: var(--bg);
-      --media-border: var(--line);
-
-
-	/* Anleitung */
-	  
-	  
-      --step-bg: var(--surface-2);			/* Kreis mit der Schrittnummer */
-      --step-text: var(--muted);			/* Zahl im Kreis */
-      --shot-border: var(--line);			/* Rahmen um Screenshots */
-
-
-	/* Vergleich (Pro / Con) */
-	  
-	  
-      --compare-bg-top: var(--surface);		/* Standard für Pro und Con: Hintergrund oben */
-      --compare-bg-bottom: var(--surface-2);	/* Standard für Pro und Con: Hintergrund unten (gleicher Wert = einfarbig) */
+      --compare-bg-top: var(--surface);			/*	Standard für Pro und Con: Hintergrund oben						*/
+      --compare-bg-bottom: var(--surface-2);	/*	Standard für Pro und Con: Hintergrund unten (gleicher Wert = einfarbig)	*/
       --compare-border: var(--line);
-      --compare-pro: var(--green);			/* Pro: Linie oben + Überschrift */
-      --compare-con: var(--red);			/* Con: Linie oben + Überschrift */
+      --compare-pro: var(--green);				/*	Pro: Linie oben + Überschrift	*/
+      --compare-con: var(--red);				/*	Con: Linie oben + Überschrift	*/
 
-      /* Pro und Con einzeln (Farbverlauf von oben nach unten) */
+
+    /*	Pro und Con einzeln (Farbverlauf von oben nach unten)	*/
+	
       --compare-pro-border: var(--compare-border);
       --compare-pro-bg-top: var(--compare-bg-top);
       --compare-pro-bg-bottom: var(--greenbg);
@@ -221,51 +242,27 @@
       --compare-con-bg-bottom: var(--redbg);
 
 
-	/* Coming-Soon-Liste */
-	  
+	/*	Coming-Soon-Liste	*/
 	  
       --soon-bg: var(--surface-2);
       --soon-border: var(--line);
-      --soon-marker: var(--muted);			/* das Zeichen ▸ vor jedem Eintrag */
+      --soon-marker: var(--muted);		/*	das Zeichen ▸ vor jedem Eintrag	*/
 
 
-	/* Hinweis-Boxen (> [!NOTE] usw. aus der README) */
-	  
-	  
-      --alert-important-bg: var(--yellowbg);
-      --alert-important-border: var(--yellow);
-      --alert-important-label: var(--yellow);
-      --alert-warning-bg: var(--redbg);
-      --alert-warning-border: var(--red);
-      --alert-warning-label: var(--red);
-      --alert-note-bg: var(--cyanbg);                 /* gilt für NOTE und TIP */
-      --alert-note-border: var(--cyan);
-      --alert-note-label: var(--cyan);
-      --alert-caution-bg: var(--orangebg);
-      --alert-caution-border: var(--orange);
-      --alert-caution-label: var(--orange);
+
+	/*	dunkles Thema		*/
 
 
-	/* Fehlermeldung (README konnte nicht geladen werden) */
-	  
-	  
-      --error-bg: var(--redbg);
-      --error-border: var(--red);
+	/*	Linienmuster als Hintergrund der Kästchen (Live-Zeile, Feature-Karten, Vergleich)	*/
+	/*	Bild: linemap.png (muss neben der index.html liegen)					*/
 
-
-	/* Strukturhinweis (falls README-Überschriften fehlen) */
-	  
-	  
-      --note-bg: var(--redbg);
-      --note-border: var(--red);
-      --note-text: var(--text);
-
-
-	/* Favicon (Symbol im Browser-Tab) */
-	  
-	  
-      --favicon-bg: var(--bg);
-      --favicon-line: var(--green);
+      --linemap-image: url("linemap.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
+      --linemap-size: auto;					/*	Größe der Kachel: auto = Originalgröße (514px), z. B. 300px = kleiner	*/
+      --linemap-blend: screen;				/*	screen = nur die hellen Linien zeigen sich. normal = Bild liegt komplett darüber	*/
+      --linemap-opacity: .05;				/*	Stärke der Linien (0 = unsichtbar, 1 = voll). Im Spiel: .05	*/
+      --stat-linemap-opacity: var(--linemap-opacity);		/*	nur Live-Zeile	*/
+      --card-linemap-opacity: var(--linemap-opacity);		/*	nur Feature-Karten	*/
+      --compare-linemap-opacity: var(--linemap-opacity);	/*	nur Vergleich (Pro / Con)	*/
 
       color-scheme: dark;
     }
@@ -315,8 +312,13 @@
     }
 
     .title-row {
+      /* Größe der Hauptüberschrift. Die Flaggen richten sich danach. */
+      --title-size: clamp(2.2rem, 5vw, 3.6rem);
+      /* Notfallwert, falls JavaScript nicht läuft: Höhe der Flaggen im Verhältnis zur Schriftgröße.
+         Normalerweise misst die Seite die höchsten Buchstaben selbst (siehe fitFlags im Skript). */
+      --flag-height-ratio: .70;
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
       gap: 18px;
     }
@@ -324,7 +326,7 @@
     h1 {
       margin: 0;
       font-family: Rajdhani, "Arial Narrow", sans-serif;
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: var(--title-size);
       font-weight: 700;
       line-height: .95;
       letter-spacing: .01em;
@@ -339,39 +341,46 @@
       line-height: 1.15;
     }
 
-    /* Flaggen: gleicher unsichtbarer Rahmen, damit nichts springt.
-       Aktiv und Hover benutzen dieselbe Goldfarbe. */
+
+    /*	Flaggen: gleicher unsichtbarer Rahmen, damit nichts springt.	*/
+	   
     .lang-switch {
       display: flex;
       flex-direction: row;
-      gap: 8px;
+      align-items: flex-end;
+      gap: 16px;
       flex: 0 0 auto;
     }
 
+    /* Der Rahmen der Flagge (Rand + Abstand = 5px je Seite) ist so hoch wie die höchsten
+       Buchstaben der Hauptüberschrift. Der untere Rand liegt auf der Grundlinie. */
     .flag-btn {
-      position: relative;
+      --flag-box-h: calc(var(--title-size) * var(--flag-height-ratio));
       display: block;
       padding: 3px;
       line-height: 0;
       border: 2px solid transparent;
-      border-radius: 5px;
+      border-radius: 6px;
       background: transparent;
       cursor: pointer;
       transition: border-color .12s linear;
     }
 
-    .flag-btn svg {
+    .flag-btn .flag-svg {
       display: block;
-      width: 36px;
-      height: 24px;
+      height: calc(var(--flag-box-h) - 10px);
+      width: calc((var(--flag-box-h) - 10px) * 1.5);
       border-radius: 2px;
       box-shadow: inset 0 0 0 1px var(--flag-inner-ring);
     }
 
-    .flag-btn.is-active,
-    .flag-btn:not(.is-active):hover,
-    .flag-btn:not(.is-active):focus-visible {
-      border-color: var(--flag-border-active);
+    .flag-btn:hover,
+    .flag-btn:focus-visible {
+      border-color: var(--flag-hover-color);
+    }
+
+    .flag-btn.is-active {
+      border-color: var(--flag-selected-color);
     }
 
     .flag-btn:focus-visible {
@@ -393,13 +402,14 @@
 
     .intro-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(240px, .78fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 28px;
       align-items: start;
       margin-top: 28px;
     }
 
-    .about {
+    /* ".intro-copy .about" (statt nur ".about"): sonst überschreibt ".intro-copy p" die About-Farbe */
+    .intro-copy .about {
       margin: 0 0 14px;
       color: var(--about-text);
       font-size: 1.14rem;
@@ -421,6 +431,30 @@
       width: 100%;
       height: auto;
     }
+
+    /* Linienmuster über dem Farbverlauf der Kästchen, unter dem Text (Einstellungen im Farbblock oben) */
+    .stat, .card, .compare-col {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .stat::before, .card::before, .compare-col::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+      background-image: var(--linemap-image);
+      background-size: var(--linemap-size);
+      background-repeat: repeat;
+      mix-blend-mode: var(--linemap-blend);
+      opacity: var(--lm-opacity, var(--linemap-opacity));
+    }
+
+    .stat { --lm-opacity: var(--stat-linemap-opacity); }
+    .card { --lm-opacity: var(--card-linemap-opacity); }
+    .compare-col { --lm-opacity: var(--compare-linemap-opacity); }
 
     .live {
       display: flex;
@@ -496,12 +530,13 @@
     }
 
 
-    /* Feature-Raster: 6 Spalten.
-       Jede Karte belegt "span N" Spalten: span 6 = ganze Zeile, span 3 = Hälfte, span 2 = Drittel.
-       Die Zeilen ergeben sich aus der Reihenfolge:
-       Karte 1-2 (je 1/2), Karte 3-5 (je 1/3), Karte 6-7 (je 1/2), Karte 8-9 (je 1/2).
-       Karten ab Nummer 10 belegen standardmäßig ein Drittel. */
-	   
+    /*
+		Feature-Raster: 6 Spalten.
+		Jede Karte belegt "span N" Spalten: span 6 = ganze Zeile, span 3 = Hälfte, span 2 = Drittel.
+		Die Zeilen ergeben sich aus der Reihenfolge:
+		Karte 1-2 (je 1/2), Karte 3-5 (je 1/3), Karte 6-7 (je 1/2), Karte 8-9 (je 1/2).
+		Karten ab Nummer 10 belegen standardmäßig ein Drittel.
+	*/
 	   
     .cards {
       display: grid;
@@ -545,8 +580,7 @@
     .card li + li, .compare-col li + li { margin-top: 4px; }
 
 
-    /* How to use: links Text (Schritte), rechts Screenshot mit Hinweis darunter */
-	
+    /*	How to use: links Text (Schritte), rechts Screenshot mit Hinweis darunter	*/
 	
     .howto-grid {
       display: grid;
@@ -708,7 +742,7 @@
 		
         <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
           <button type="button" class="flag-btn is-active" data-lang="en" aria-pressed="true" title="English">
-            <svg viewBox="0 0 60 30" aria-hidden="true">
+            <svg class="flag-svg" viewBox="0 0 60 30" aria-hidden="true">
               <clipPath id="uk-clip"><rect width="60" height="30"></rect></clipPath>
               <g clip-path="url(#uk-clip)">
                 <rect width="60" height="30" fill="#012169"></rect>
@@ -721,7 +755,7 @@
             <span class="visually-hidden">English</span>
           </button>
           <button type="button" class="flag-btn" data-lang="de" aria-pressed="false" title="Deutsch">
-            <svg viewBox="0 0 5 3" aria-hidden="true">
+            <svg class="flag-svg" viewBox="0 0 5 3" aria-hidden="true">
               <rect width="5" height="1" fill="#000"></rect>
               <rect width="5" height="1" y="1" fill="#DD0000"></rect>
               <rect width="5" height="1" y="2" fill="#FFCE00"></rect>
@@ -729,7 +763,7 @@
             <span class="visually-hidden">Deutsch</span>
           </button>
           <button type="button" class="flag-btn" data-lang="ru" aria-pressed="false" title="Русский">
-            <svg viewBox="0 0 3 2" aria-hidden="true">
+            <svg class="flag-svg" viewBox="0 0 3 2" aria-hidden="true">
               <rect width="3" height="2" fill="#fff"></rect>
               <rect width="3" y=".667" height="1.333" fill="#0039A6"></rect>
               <rect width="3" y="1.333" height=".667" fill="#D52B1E"></rect>
@@ -1501,8 +1535,28 @@
       link.setAttribute("href", "data:image/svg+xml," + encodeURIComponent(svg));
     }
 
+    /* Flaggenhöhe: misst die höchsten Buchstaben der Hauptüberschrift (z. B. b, l, d, f)
+       und macht die Flaggen genau so hoch. Läuft nach dem Laden der Schrift, beim Ändern
+       der Fenstergröße und wenn sich der Titel ändert (README geladen). */
+    function fitFlags() {
+      const h1 = document.getElementById("page-title");
+      const row = h1 && h1.closest(".title-row");
+      if (!h1 || !row) return;
+      const cs = getComputedStyle(h1);
+      const ctx = document.createElement("canvas").getContext("2d");
+      ctx.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+      const size = parseFloat(cs.fontSize);
+      const m = ctx.measureText(h1.textContent || "bdfhklt");
+      if (!size || !m.actualBoundingBoxAscent) return;
+      row.style.setProperty("--flag-height-ratio", (m.actualBoundingBoxAscent / size).toFixed(4));
+    }
+
     function init() {
       applyFavicon();
+      fitFlags();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFlags);
+      window.addEventListener("resize", fitFlags);
+      new MutationObserver(fitFlags).observe(document.getElementById("page-title"), { childList: true, characterData: true, subtree: true });
       document.getElementById("lang-switch").addEventListener("click", (event) => {
         const button = event.target.closest("button[data-lang]");
         if (!button || button.dataset.lang === state.lang) return;
