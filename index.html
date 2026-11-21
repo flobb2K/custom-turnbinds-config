@@ -264,6 +264,17 @@
       --card-linemap-opacity: var(--linemap-opacity);		/*	nur Feature-Karten	*/
       --compare-linemap-opacity: var(--linemap-opacity);	/*	nur Vergleich (Pro / Con)	*/
 
+
+	/*	Punktmuster als Hintergrund der Branch-Pills und der Hinweisboxen	*/
+	/*	Bild: bluedots.png (muss neben der index.html liegen)				*/
+
+      --dots-image: url("bluedots.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
+      --dots-size: auto;					/*	Größe der Kachel: auto = Originalgröße (512px), z. B. 256px = Punkte halb so groß	*/
+      --dots-blend: screen;				/*	screen = nur die hellen Punkte zeigen sich. normal = Bild liegt komplett darüber	*/
+      --dots-opacity: .04;					/*	Stärke der Punkte (0 = unsichtbar, 1 = voll). Im Spiel: .04	*/
+      --pill-dots-opacity: var(--dots-opacity);		/*	nur Branch-Pills	*/
+      --alert-dots-opacity: var(--dots-opacity);		/*	nur Hinweisboxen	*/
+
       color-scheme: dark;
     }
 
@@ -517,6 +528,29 @@
     }
 
     .branch-list a:hover { border-color: var(--stat-border-hover); color: var(--stat-border-hover); }
+
+    /* Punktmuster über dem Hintergrund der Pills und Hinweisboxen, unter dem Text (Einstellungen im Farbblock oben) */
+    .branch-list a, .alert {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .branch-list a::before, .alert::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+      background-image: var(--dots-image);
+      background-size: var(--dots-size);
+      background-repeat: repeat;
+      mix-blend-mode: var(--dots-blend);
+      opacity: var(--dots-op, var(--dots-opacity));
+    }
+
+    .branch-list a { --dots-op: var(--pill-dots-opacity); }
+    .alert { --dots-op: var(--alert-dots-opacity); }
 
     .readme-section { margin-top: 46px; }
 
