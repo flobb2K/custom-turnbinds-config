@@ -1303,9 +1303,9 @@
       let text = String(raw);
       text = text.replace(/<img\b[^>]*\/?>/gi, (tag) => keep(sanitizeImg(tag)));
       text = text.replace(/<\/?ins>/gi, (tag) => keep(tag.charAt(1) === "/" ? "</ins>" : "<ins>"));
-      // Windows-Pfade (mit \\) beginnen eine neue Zeile, wenn davor Text steht.
+      // Nur vollständige Laufwerkspfade ([Drive]:\ oder C:\) beginnen eine neue Zeile, wenn davor Text steht.
       text = text.replace(/`([^`]+)`/g, (_, code, offset) => {
-        const lead = offset > 0 && code.indexOf("\\") !== -1 ? "<br>" : "";
+        const lead = offset > 0 && /^\[?[A-Za-z]+\]?:\\/.test(code) ? "<br>" : "";
         return keep(lead + "<code>" + formatCode(code) + "</code>");
       });
       text = text.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (whole, label, url) => {
