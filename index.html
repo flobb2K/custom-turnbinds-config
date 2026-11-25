@@ -580,6 +580,13 @@
       background: var(--media-bg);
     }
 
+    /* Demo-Video: Play-Symbol und Steuerleiste des Browsers ausblenden (Safari/iOS zeigt das Symbol, wenn Autoplay blockiert ist) */
+    .intro-media video { pointer-events: none; }
+    .intro-media video::-webkit-media-controls,
+    .intro-media video::-webkit-media-controls-start-playback-button,
+    .intro-media video::-webkit-media-controls-overlay-play-button,
+    .intro-media video::-webkit-media-controls-panel { display: none !important; -webkit-appearance: none; opacity: 0; }
+
     .preview-art, .intro-media img, .intro-media video {
       display: block;
       width: 100%;
@@ -1917,6 +1924,16 @@
 
     function init() {
       applyFavicon();
+      const demo = document.querySelector("#preview-slot video");
+      if (demo) {
+        demo.muted = true;
+        demo.removeAttribute("controls");
+        const go = () => { const p = demo.play(); if (p && p.catch) p.catch(() => {}); };
+        go();
+        demo.addEventListener("pause", () => { if (!document.hidden) go(); });
+        document.addEventListener("visibilitychange", () => { if (!document.hidden) go(); });
+        ["touchstart", "click", "scroll"].forEach((ev) => window.addEventListener(ev, go, { once: true, passive: true }));
+      }
       fitFlags();
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFlags);
       window.addEventListener("resize", fitFlags);
