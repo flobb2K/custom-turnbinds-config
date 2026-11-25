@@ -158,7 +158,7 @@
       --favicon-line: var(--green);
 
 
-	/*	Kopfbild (GitHub Page/header.png) und Sprachbox oben rechts darin	*/
+	/*	Kopfbild (assets/header.png) und Sprachbox oben rechts darin	*/
 
       --hero-bg-top: var(--surface);			/*	Hintergrund des Kopfbilds oben	*/
       --hero-bg-bottom: var(--surface-2);		/*	Hintergrund des Kopfbilds unten (gleicher Wert = einfarbig)	*/
@@ -329,9 +329,9 @@
 
 
 	/*	Linienmuster als Hintergrund der Kästchen (Live-Zeile, Feature-Karten, Vergleich)	*/
-	/*	Bild: linemap.png (liegt im Ordner "GitHub Page" neben der index.html)					*/
+	/*	Bild: linemap.png (liegt im Ordner "assets" neben der index.html)					*/
 
-      --linemap-image: url("GitHub%20Page/linemap.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
+      --linemap-image: url("assets/linemap.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
       --linemap-size: auto;					/*	Größe der Kachel: auto = Originalgröße (514px), z. B. 300px = kleiner	*/
       --linemap-blend: screen;				/*	screen = nur die hellen Linien zeigen sich. normal = Bild liegt komplett darüber	*/
       --linemap-opacity: .05;				/*	Stärke der Linien (0 = unsichtbar, 1 = voll). Im Spiel: .05	*/
@@ -341,9 +341,9 @@
 
 
 	/*	Punktmuster als Hintergrund der Branch-Pills und der Hinweisboxen	*/
-	/*	Bild: bluedots.png (liegt im Ordner "GitHub Page" neben der index.html)				*/
+	/*	Bild: bluedots.png (liegt im Ordner "assets" neben der index.html)				*/
 
-      --dots-image: url("GitHub%20Page/bluedots.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
+      --dots-image: url("assets/bluedots.png");		/*	Das Bild. Mit "none" schaltest du das Muster überall ab	*/
       --dots-size: auto;					/*	Größe der Kachel: auto = Originalgröße (512px), z. B. 256px = Punkte halb so groß	*/
       --dots-blend: screen;				/*	screen = nur die hellen Punkte zeigen sich. normal = Bild liegt komplett darüber	*/
       --dots-opacity: .04;					/*	Stärke der Punkte (0 = unsichtbar, 1 = voll). Im Spiel: .04	*/
@@ -978,11 +978,11 @@
 <body>
   <div class="wrap">
     <header>
-      <!-- Die Überschrift kommt aus der ersten "#"-Zeile der README. Sichtbar ist sie im Kopfbild (GitHub Page/header.png). -->
+      <!-- Die Überschrift kommt aus der ersten "#"-Zeile der README. Sichtbar ist sie im Kopfbild (assets/header.png). -->
       <h1 id="page-title" class="visually-hidden">flobb's turnbinds</h1>
 
       <div class="hero">
-        <img class="hero-img" src="GitHub%20Page/header.png" alt="" width="2500" height="1061">
+        <img class="hero-img" src="assets/header.png" alt="" width="2500" height="1061">
 
       </div>
     </header>
@@ -1050,7 +1050,7 @@
           </div>
         </div>
         <aside class="intro-media" id="preview-slot">
-         <img class="preview-art" src="GitHub%20Page/turnbinds_demo.gif" alt="Turnbinds Demo">
+         <img class="preview-art" src="assets/turnbinds_demo.gif" alt="Turnbinds Demo">
         </aside>
       </div>
     </div>
