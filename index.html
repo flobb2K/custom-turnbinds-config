@@ -327,11 +327,14 @@
       --compare-con-bg-bottom: var(--redbg);
 
 
-	/*	Coming-Soon-Liste	*/
-	  
-      --soon-bg: var(--surface-2);
-      --soon-border: var(--line);
-      --soon-marker: var(--muted);		/*	das Zeichen ▸ vor jedem Eintrag	*/
+	/*	Special Thanks + Cybershoke (nebeneinander am Ende der Seite)	*/
+
+      --credit-border: var(--line);				/*	Rahmen der beiden Textkästchen	*/
+      --credit-bg-top: var(--stat-bg-top);		/*	Hintergrund oben (Standard: wie die Live-Zeile)	*/
+      --credit-bg-bottom: var(--stat-bg-bottom);	/*	Hintergrund unten	*/
+      --credit-linemap-opacity: var(--linemap-opacity);	/*	Stärke des Linienmusters in den Textkästchen	*/
+      --credit-padding: 12px 14px;			/*	Innenabstand der Textkästchen	*/
+      --logo-height: calc(var(--heading-font-size) * 1.1);	/*	Höhe des Cybershoke-Logos im Überschrift-Kästchen (Standard: so hoch wie eine ##-Überschrift)	*/
 
 
 
@@ -741,6 +744,7 @@
     /* Überschriften im Kästchen (Hintergrund wie die Live-Zeile, aber mit blue dots). Variablen: siehe Farbblock oben. */
     .subtitle,
     .readme-section > h2,
+    .credit-col > h2,
     .extra-block > h2 {
       position: relative;
       isolation: isolate;
@@ -761,10 +765,12 @@
 
     .subtitle { --hc: var(--h1-color); --hbd: var(--h1-border); --hbg-top: var(--h1-bg-top); --hbg-bottom: var(--h1-bg-bottom); }
     .readme-section > h2,
+    .credit-col > h2,
     .extra-block > h2 { --hc: var(--h2-color); --hbd: var(--h2-border); --hbg-top: var(--h2-bg-top); --hbg-bottom: var(--h2-bg-bottom); }
 
     .subtitle::before,
     .readme-section > h2::before,
+    .credit-col > h2::before,
     .extra-block > h2::before {
       content: "";
       position: absolute;
@@ -920,23 +926,51 @@
     .compare-col.is-pro { --accent: var(--compare-pro); --bd: var(--compare-pro-border); --bg-top: var(--compare-pro-bg-top); --bg-bottom: var(--compare-pro-bg-bottom); border-top: 3px solid var(--compare-pro); }
     .compare-col.is-con { --accent: var(--compare-con); --bd: var(--compare-con-border); --bg-top: var(--compare-con-bg-top); --bg-bottom: var(--compare-con-bg-bottom); border-top: 3px solid var(--compare-con); }
 
-    .soon { list-style: none; margin: 0; padding: 0; }
+    /* Special Thanks + Cybershoke: zwei gleich breite Spalten (bis zur Mitte, Abstand --feature-gap), Kästchen gleich hoch */
+    .credits-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--feature-gap);
+      align-items: stretch;
+      margin-top: var(--section-gap);
+    }
 
-    .soon li {
+    .credit-col { display: flex; flex-direction: column; min-width: 0; }
+    .credit-col[hidden] { display: none; }
+
+    /* Cybershoke-Logo statt Text in der Überschrift (gleiches Kästchen wie die ##-Überschriften) */
+    .credit-col > h2.logo-heading { display: flex; align-items: center; justify-content: center; }
+    .logo-heading img { display: block; height: var(--logo-height); width: auto; max-width: 100%; }
+
+    /* Textkästchen: Rahmen + Linienmuster (linemap.png) wie die Live-Zeile */
+    .credit-box {
+      flex: 1;
       position: relative;
-      margin: 0 0 8px;
-      padding: 10px 12px 10px 36px;
-      background: var(--soon-bg);
-      border: 1px solid var(--soon-border);
-      border-radius: 10px;
+      isolation: isolate;
+      padding: var(--credit-padding);
+      background: linear-gradient(180deg, var(--credit-bg-top), var(--credit-bg-bottom));
+      border: 1px solid var(--credit-border);
+      border-radius: 14px;
     }
 
-    .soon li::before {
-      content: "▸";
+    .credit-box::before {
+      content: "";
       position: absolute;
-      left: 14px;
-      color: var(--soon-marker);
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+      background-image: var(--linemap-image);
+      background-size: var(--linemap-size);
+      background-repeat: repeat;
+      mix-blend-mode: var(--linemap-blend);
+      opacity: var(--credit-linemap-opacity);
     }
+
+    .credit-box > :last-child { margin-bottom: 0; }
+    .credit-box p, .credit-box li { text-align: var(--content-text-align); hyphens: auto; }
+    .credit-box p { margin: 0 0 10px; }
+    .credit-box ul { margin: 0 0 10px; padding-left: 1.15rem; }
 
     .alert {
       margin: 10px 0;
@@ -1012,7 +1046,7 @@
     }
 
     @media (max-width: 800px) {
-      .intro-grid, .compare, .howto-grid { grid-template-columns: 1fr; }
+      .intro-grid, .compare, .howto-grid, .credits-grid { grid-template-columns: 1fr; }
       .cards { grid-template-columns: 1fr; }
       .cards > .card:nth-child(n) { grid-column: 1 / -1; }
     }
@@ -1140,8 +1174,10 @@
     <section class="readme-section" id="features" hidden></section>
     <section class="readme-section" id="howto" hidden></section>
     <section class="readme-section" id="compare" hidden></section>
-    <section class="readme-section" id="thanks" hidden></section>
-    <section class="readme-section" id="soon" hidden></section>
+    <div class="credits-grid">
+      <section class="credit-col" id="thanks" hidden></section>
+      <section class="credit-col" id="cybershoke" hidden></section>
+    </div>
     <div id="extra"></div>
   </div>
 
@@ -1191,7 +1227,7 @@
         language: "Language",
         locale: "en-GB",
         alert: { NOTE: "Note", IMPORTANT: "Important", WARNING: "Warning", TIP: "Tip", CAUTION: "Caution" },
-        structure: (branch, count) => `The README.md in branch "${branch}" has ${count} level-2 headings. This page expects five, in this order: features, how to use, the comparison, Cybershoke, Coming Soon. Later blocks stay empty until those headings exist.`
+        structure: (branch, count) => `The README.md in branch "${branch}" has ${count} level-2 headings. This page expects five, in this order: features, how to use, the comparison, Special Thanks, Cybershoke. Later blocks stay empty until those headings exist.`
       },
       de: {
         stars: "Sterne",
@@ -1205,7 +1241,7 @@
         language: "Sprache",
         locale: "de-DE",
         alert: { NOTE: "Hinweis", IMPORTANT: "Wichtig", WARNING: "Warnung", TIP: "Tipp", CAUTION: "Vorsicht" },
-        structure: (branch, count) => `Die README.md im Branch „${branch}“ hat ${count} Überschriften der Ebene 2. Diese Seite erwartet fünf, in dieser Reihenfolge: Features, Anleitung, Vergleich, Cybershoke, Coming Soon. Die späteren Blöcke bleiben leer, bis diese Überschriften existieren.`
+        structure: (branch, count) => `Die README.md im Branch „${branch}“ hat ${count} Überschriften der Ebene 2. Diese Seite erwartet fünf, in dieser Reihenfolge: Features, Anleitung, Vergleich, Special Thanks, Cybershoke. Die späteren Blöcke bleiben leer, bis diese Überschriften existieren.`
       },
       ru: {
         stars: "Звёзды",
@@ -1219,7 +1255,7 @@
         language: "Язык",
         locale: "ru-RU",
         alert: { NOTE: "Примечание", IMPORTANT: "Важно", WARNING: "Предупреждение", TIP: "Совет", CAUTION: "Осторожно" },
-        structure: (branch, count) => `В README.md ветки «${branch}» заголовков второго уровня: ${count}. Страница ждёт пять, в таком порядке: возможности, инструкция, сравнение, Cybershoke, Coming Soon. Дальнейшие блоки останутся пустыми, пока этих заголовков нет.`
+        structure: (branch, count) => `В README.md ветки «${branch}» заголовков второго уровня: ${count}. Страница ждёт пять, в таком порядке: возможности, инструкция, сравнение, Special Thanks, Cybershoke. Дальнейшие блоки останутся пустыми, пока этих заголовков нет.`
       }
     };
 
@@ -1482,8 +1518,7 @@
     function renderBlock(block, options) {
       if (block.type === "p") return "<p>" + formatLines(block.lines) + "</p>";
       if (block.type === "ul") {
-        const cls = options.soon ? ' class="soon"' : "";
-        return "<ul" + cls + ">" + block.items.map((item) => "<li>" + formatInline(item) + "</li>").join("") + "</ul>";
+        return "<ul>" + block.items.map((item) => "<li>" + formatInline(item) + "</li>").join("") + "</ul>";
       }
       if (block.type === "ol") {
         if (options.steps) {
@@ -1513,7 +1548,7 @@
     }
 
     function hideReadme() {
-      ["features", "howto", "compare", "thanks", "soon"].forEach((id) => {
+      ["features", "howto", "compare", "thanks", "cybershoke"].forEach((id) => {
         const el = document.getElementById(id);
         el.hidden = true;
         el.innerHTML = "";
@@ -1574,12 +1609,24 @@
         return "<h2>" + formatInline(section.title) + "</h2>" + renderBlocks(section.lead) + '<div class="compare">' + columns + "</div>" + more;
       });
 
-      fillSection("thanks", sections[3], (section) => simpleSection(section, { banner: true }));
-      fillSection("soon", sections[4], (section) => simpleSection(section, { soon: true }));
+      /* Special Thanks + Cybershoke: nebeneinander. Text im Kästchen; bei Cybershoke ersetzt das Logo die Überschrift, das Banner aus der README entfällt. */
+      fillSection("thanks", sections[3], (section) => creditSection(section, false));
+      fillSection("cybershoke", sections[4], (section) => creditSection(section, true));
 
       document.getElementById("extra").innerHTML = sections.slice(5).map((section) => {
         return '<section class="readme-section extra-block">' + simpleSection(section, {}) + "</section>";
       }).join("");
+    }
+
+    function creditSection(section, logo) {
+      const head = logo
+        ? '<h2 class="logo-heading"><img src="assets/logo_full_monochrome.png" alt="' + escapeAttr(section.title) + '"></h2>'
+        : "<h2>" + formatInline(section.title) + "</h2>";
+      const subs = section.subsections.map((sub) => {
+        return "<h3>" + formatInline(sub.title) + "</h3>" + renderBlocks(sub.blocks.filter((b) => b.type !== "img"));
+      }).join("");
+      const body = renderBlocks(section.lead.filter((b) => b.type !== "img")) + subs;
+      return head + '<div class="credit-box">' + body + "</div>";
     }
 
     function simpleSection(section, options) {
