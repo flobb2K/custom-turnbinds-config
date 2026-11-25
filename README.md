@@ -60,13 +60,13 @@ In the included `turnbinds\settings.cfg` file, I have provided **many customizat
 If you have tinkered with Counter-Strike configs before and want to add more features yourself, I also recommend checking out the `turnbinds\setup\setup.cfg` file.
 
 ## How to use
-1. Download the `.zip` file containing the config files (on the right side under "Releases").
+1. Download the `.zip` file containing the config files under "Releases".
 2. Extract all files from the `.zip` archive.
 3. Choose your preferred language for the config files and open the corresponding folder.
 4. Inside, you will find the `turnbinds` folder. Copy this folder, including all of its contents, to  
    `[Drive]:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg`
 5. Set up the config using the `settings.cfg` file in the `turnbinds` folder.
-6. To execute the config, type `exec turnbinds\exec.cfg` into the developer console. The screenshot below shows what it should look like afterwards.
+6. To execute the config, type `exec turnbinds\exec.cfg` into the developer console. The screenshot shows what it should look like afterwards.
 7. For convenience, I recommend binding the exec command to a key: `bind "[key]" "exec turnbinds\exec.cfg"`
 8. You can also add `exec turnbinds\exec.cfg` to your `autoexec.cfg` file.
 
