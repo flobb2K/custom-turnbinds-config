@@ -1,85 +1,94 @@
-# flobb's Turnbinds
-# Turnbinds mit anpassbaren Turnspeeds für CS2/CSGO
+# flobb's turnbinds
+# Turnbinds mit anpassbaren Drehgeschwindigkeiten für CS2/CSGO
 
-Diese Config nutzt einen Workaround, um die alten Convars `cl_yawspeed` und `cl_pitchspeed` aus ***Counter-Strike: Source*** auch in dem neuen Game ***Counter-Strike 2*** und dessen Vorgänger ***Counter-Strike: Global Offensive*** verfügbar zu machen – <ins>ausschließlich mit Konsolenbefehlen</ins>, wie in guten alten Zeiten.  
-Zusätzlich bietet sie eine Vielzahl <ins>verschiedener Binds und Anpassungsmöglichkeiten</ins>, die die volle Nutzung dieser verloren geglaubten, aber nicht vergessenen Konsolenbefehle ermöglichen.
+Diese Config nutzt einen Workaround, um die alten Konsolenvariablen `cl_yawspeed` und `cl_pitchspeed` aus ***Counter-Strike: Source*** in das neueste Spiel der Reihe, ***Counter-Strike 2***, sowie in dessen Vorgänger ***Counter-Strike: Global Offensive*** zu bringen – <ins>ausschließlich mit Konsolenbefehlen</ins>. Außerdem bietet sie eine Vielzahl verschiedener <ins>Binds und Anpassungsmöglichkeiten</ins>, mit denen sich diese längst verloren geglaubten, aber nicht vergessenen Konsolenbefehle voll ausschöpfen lassen.
 
-## Features:
+## Features
 ### cl_yawspeed
-Mit dieser Config kann man ***yawspeed ändern***, indem man `cl_yawspeed_[Wert]` in die <ins>Entwicklerkonsole</ins> eingibt.
+Diese Config ermöglicht es, den **Yawspeed zu ändern**, indem du `cl_yawspeed_[value]` in die Entwicklerkonsole eingibst oder `.cfg`-Dateien ausführst.
 >[!IMPORTANT]
->`cl_yawspeed` kann jeden Wert von 1 bis 300 annehmen. Nur ganze Zahlen sind erlaubt!
+>`cl_yawspeed` wird in **Grad pro Sekunde** gemessen und kann auf einen beliebigen ganzzahligen Wert von `1` bis `300` gesetzt werden.
 
 ### cl_pitchspeed
-Mit dieser Config kann man ***pitchspeed ändern***, indem man `cl_pitchspeed_[Wert]` in die <ins>Entwicklerkonsole</ins> eingibt.
+Diese Config ermöglicht es, den **Pitchspeed zu ändern**, indem du `cl_pitchspeed_[value]` in die Entwicklerkonsole eingibst oder `.cfg`-Dateien ausführst.
 >[!IMPORTANT]
->`cl_pitchspeed` kann jeden Wert von 1 bis 45 annehmen. Nur ganze Zahlen sind erlaubt!
+>`cl_pitchspeed` wird in **Grad pro Sekunde** gemessen und kann auf einen beliebigen ganzzahligen Wert von `1` bis `45` gesetzt werden.
 
-### Feste Binds
-Belege so viele Tasten mit verschiedenen cl_yawspeed-/cl_pitchspeed-Befehlen, wie du willst!  
+### Fixed Binds
+**Belege** beliebig viele **Tasten mit verschiedenen** `cl_yawspeed`-/`cl_pitchspeed`-**Befehlen**!  
 
-`bind "[Taste]" "cl_yawspeed_[Wert]"`  
-`bind "[Taste]" "cl_pitchspeed_[Wert]"`
+`bind "[key]" "cl_yawspeed_[value]"`  
+`bind "[key]" "cl_pitchspeed_[value]"`
 
 ### Toggle/Cycle Binds
-- ***Wechsle zwischen*** zwei, drei oder vier verschiedenen `cl_yawspeed` Werte mit <ins>einer einzigen Taste</ins>.
-- ***Wechsle zwischen*** zwei oder drei verschiedenen `cl_pitchspeed` Werte mit <ins>einer einzigen Taste</ins>.
-- ***Feste Binds können mit den Toggle/Cycle Binds gekoppelt werden***, damit sie ebenfalls den Cycle-Alias beeinflussen.
-- Option, den `cl_yawspeed` Cycle-Alias ***zusammen mit der Stage/dem Run zurückzusetzen***.
+- **Wechsle** mit **einer einzigen Taste** zwischen zwei, drei oder vier **verschiedenen** `cl_yawspeed`-**Einstellungen**!
+- **Wechsle** mit **einer einzigen Taste** zwischen zwei oder drei **verschiedenen** `cl_pitchspeed`-**Einstellungen**!
+- **Kombiniere** Fixed Binds mit Toggle/Cycle Binds, sodass die Fixed Binds **auch den Zyklus-Alias beeinflussen**!
+- Setze den `cl_yawspeed`-**Zyklus-Alias** optional **automatisch zurück**, **sobald** du deine **Stage oder deinen Run neu startest**!
 
 ### Hold-to-Activate Binds
-***Hold-to-Activate-Binds*** <ins>müssen gehalten werden</ins>, um den `cl_yawspeed` Wert zu ändern.
-<ins>Wird keine dieser Tasten gehalten bzw. losgelassen</ins>, wird eine ***vorher festgelegter*** `cl_yawspeed` Wert aktiviert.
-Diese Config unterstützt ***bis zu drei Hold-to-Activate Binds***, die zusammen insgesamt vier verschiedene `cl_yawspeed` Werte ermöglichen.
->[!WARNING]
->Diese Art von Bind ***funktioniert nicht zusammen mit Festen oder Toggle/Cycle Binds***!
+Hold-to-Activate Binds **müssen gedrückt gehalten werden**, um die `cl_yawspeed`-Einstellung zu ändern.  
+**Solange keiner dieser Binds gehalten wird**, ist eine anpassbare Standard-`cl_yawspeed`-Einstellung aktiv.  
+Diese Config unterstützt bis zu drei Hold-to-Activate Binds, die zusammen mit der Standardeinstellung bis zu vier verschiedene Geschwindigkeitseinstellungen ergeben.  
+
+>[!IMPORTANT]
+>Hold-to-Activate Binds **lassen sich nicht mit** Fixed Binds oder Toggle/Cycle Binds **kombinieren**!
 
 ### Visuelles Feedback
-- Wechsel der ***HUD-Farbe***
-- Wechsel der ***Fadenkreuzfarbe***
-- Wechsel von ***sowohl HUD- als auch Fadenkreuzfarbe***
-- 9 verschiedene Farben für alle oben genannten Optionen
+- Farbwechsel des **HUDs**
+- Farbwechsel des **Fadenkreuzes**
+- Farbwechsel von **HUD und Fadenkreuz gleichzeitig**
+- 10 verschiedene Farben für alle oben genannten Optionen
+
 >[!NOTE]
->Die in der config enthaltenen Befehle für die Fadenkreuzfarbe **funktionieren nicht in CS:GO***!
+>Damit der **Fadenkreuz-Farbwechsel** in ***Counter-Strike: Global Offensive*** funktioniert, musst du die **Datei** `turnbinds\setup\setup.cfg` **bearbeiten**.   
+>Weitere Anweisungen findest du in dieser Datei.
 
 ### Soundeffekte
-- ***Soundeffekte bei Betätigung der Binds***
-- 21 verschiedene Sounds
-
-### Gute Nachvollziehbarkeit
-Der Sinn und Zweck jeder Config-Datei wird kurz und knapp erklärt. Ich halte hier nichts geheim. Außerdem habe ich Wert darauf gelegt, dass alles ***gut verständlich*** ist.
-
-### Ganz nach deinem Geschmack!
-Mithilfe der Config-Datei `turnbinds\settings.cfg` kannst du im Handumdrehen ***die richtigen Einstellungen für dich*** zu finden.
-Erfahrene Nutzer, die selbst Features hinzufügen möchten, sollten unbedingt einen Blick in die Datei `turnbinds\setup\setup.cfg` werfen.
-
-## Installationsanleitung:
-1. Lade die `.zip`-Datei mit den Config-Dateien herunter. (rechte Seite unter „Releases“)
-2. Entpacke alle Dateien aus dem `.zip`-Archiv.
-3. Verschiebe den Ordner `turnbinds` inklusive seinem gesamten Inhalt nach
-   `[Laufwerk]:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg`
-4. Richte die Config mithilfe der `settings.cfg` im Ordner `turnbinds` ein.
-5. Um die Config auszuführen, gib `exec turnbinds\exec.cfg` in die Entwicklerkonsole ein. Der Screenshot zeigt, wie es danach aussehen könnte.
-6. Du kannst `exec turnbinds\exec.cfg` auch in deine `autoexec.cfg` einfügen.
-<img width="2040" height="1440" alt="20261105122006_1" src="https://github.com/user-attachments/assets/eb13515b-b6db-443e-acdf-5f1b239f2249" />
+- Füge deinen Binds **Soundeffekte** hinzu!
+- Wähle aus **21 verschiedenen** Sounds!
 
 >[!NOTE]
->Die Konsole zeigt beim Start von Counter-Strike 2 den Bestätigungstext nicht an, wenn du die Config über die autoexec ausführst.
+>**Jede** Sounddatei aus den Spieldateien von CS2/CS:GO, einschließlich Musik-Kits, **kann** über die Datei `turnbinds\setup\setup.cfg` als Soundeffekt **hinzugefügt werden**.
+>Weitere Informationen findest du in dieser Datei.
 
-## Wie schlägt sich diese Config im Vergleich mit externer Turnbind-Software?
+### Volle Lesbarkeit
+**Ich verheimliche hier nichts**. Jede einzelne Config-Datei hat einen eigenen Header, der ihren Zweck erklärt, und ich habe mein Bestes gegeben, damit alles **leicht zu lesen und zu verstehen** ist.
+
+### Volle Anpassbarkeit
+In der enthaltenen Datei `turnbinds\settings.cfg` habe ich **viele Anpassungsmöglichkeiten** bereitgestellt, damit du daraus **deine ganz eigene** Config machen kannst. 
+Wenn du schon einmal an Counter-Strike-Configs getüftelt hast und selbst weitere Features hinzufügen möchtest, empfehle ich dir außerdem einen Blick in die Datei `turnbinds\setup\setup.cfg`.
+
+## Anleitung
+1. Lade die `.zip`-Datei mit den Config-Dateien unter „Releases“ herunter.
+2. Entpacke alle Dateien aus dem `.zip`-Archiv.
+3. Wähle deine bevorzugte Sprache für die Config-Dateien und öffne den entsprechenden Ordner.
+4. Darin findest du den Ordner `turnbinds`. Kopiere diesen Ordner samt seinem gesamten Inhalt nach  
+   `[Laufwerk]:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\cfg`
+5. Richte die Config über die Datei `settings.cfg` im Ordner `turnbinds` ein.
+6. Um die Config auszuführen, gib `exec turnbinds\exec.cfg` in die Entwicklerkonsole ein. Der Screenshot zeigt, wie es danach aussehen sollte.
+7. Der Einfachheit halber empfehle ich, den exec-Befehl auf eine Taste zu legen: `bind "[key]" "exec turnbinds\exec.cfg"`
+8. Du kannst `exec turnbinds\exec.cfg` auch in deine `autoexec.cfg`-Datei einfügen.
+
+<img width="2160" height="1440" alt="preview_screenshot" src="https://github.com/user-attachments/assets/86c1bc19-dbad-441e-8e74-61ae4351ca24" />
+
+>[!NOTE]
+>Deine Konsole **zeigt** beim Start den Bestätigungstext **nicht an**, **wenn du** die autoexec-Methode **verwendest**.
+
+## Warum sollte ich diese Config statt externer Turnbind-Software verwenden?
 ### Die Vorteile
-- deutlich mehr Möglichkeiten um Binds zu erstellen
-- visuelles Feedback
+- Deutlich mehr Möglichkeiten beim Erstellen von Binds
+- Visuelles Feedback
 - Soundeffekte
-- Einstellungen können über Entwicklerkonsole geändert werden
-- mit der Config wirst du niemals gebannt (funktioniert sogar bei FACEIT lol)
+- Verwendet ausschließlich Konsolenbefehle
+- Einstellungen lassen sich im Spiel über die Entwicklerkonsole ändern
 
 ### Der Nachteil
-Da cl_yawspeed/cl_pitchspeed im Spiel nicht tatsächlich als Convars existieren, können sie durch diese Config lediglich „emuliert“ werden. Das wird durch Modifikation der Befehle turnleft/turnright bzw. turnup/turndown erreicht. Der negative Effekt dabei ist, dass die Drehgeschwindigkeit nicht direkt verändert wird. Das hat zur Folge, dass man ganz kurz aufhören muss seine Turnbinds zu verwenden, um die Drehgeschwindigkeit zu ändern.
+Da `cl_yawspeed` und `cl_pitchspeed` im Spiel nicht tatsächlich als Convars existieren, „emuliert“ diese Config sie, indem sie die Befehle `turnleft`/`turnright` und `turnup`/`turndown` verändert. Der Nachteil ist, dass du die Drehgeschwindigkeit nicht ändern kannst, während du dich drehst. Damit eine Änderung der Drehgeschwindigkeit wirksam wird, musst du die Drehung kurz unterbrechen und danach neu beginnen.
 
-## Besonderer Dank gilt INSPECTRO von Cybershoke, der mir dabei geholfen hat, diese Config zu erstellen.
-<img width="4100" height="475" alt="banner_shoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
-Wenn du in CS2 surfen möchtest, empfehle ich dir dringend, das auf den Servern von Cybershoke zu tun. Diese haben eine umfassende Liste an Features zu bieten und ganz im Gegensatz zu anderen Serveranbietern werden diese ausgiebig getestet. Außerdem sind die Server und Bestenlisten voll mit guten Spielern.
+## Besonderer Dank
+- an INSPECTRO von Cybershoke
 
-## Demnächst:
-- Steam-Guide
+## Cybershoke
+<img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
+Wenn du in CS2 surfen möchtest, empfehle ich dir Cybershoke. Die Server bieten viele Features, die Maps werden gründlich getestet und die Bestenlisten sind hart umkämpft.
