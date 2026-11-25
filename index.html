@@ -205,7 +205,7 @@
 
 	/*
 		Live-Zeile: einzeln pro Kästchen (Farbverlauf von oben nach unten)
-		1 = Stars, 2 = Latest release, 3 = Branches, 4 = Last change
+		1 = Stars, 2 = Disclaimer/License, 3 = Latest release, 4 = Branches, 5 = Last change
 		border = Rahmen, bg-top / bg-bottom = Hintergrund oben / unten
 	*/
 
@@ -224,6 +224,10 @@
       --stat-4-border: var(--stat-border);
       --stat-4-bg-top: var(--stat-bg-top);
       --stat-4-bg-bottom: var(--stat-bg-bottom);
+
+      --stat-5-border: var(--stat-border);
+      --stat-5-bg-top: var(--stat-bg-top);
+      --stat-5-bg-bottom: var(--stat-bg-bottom);
 	  
 
 	/*
@@ -623,12 +627,12 @@
       border-radius: 14px;
     }
 
-    #stat-stars { flex: .5 0 105px; }
-    #stat-release { flex: 1.5 0 315px; }
+    #stat-stars, #stat-legal { flex: .5 0 145px; }  /* Stars und Disclaimer/License: gleich breit (schmal, Breite richtet sich nach dem Pill DISCLAIMER.md) */
 
     .stat:nth-child(1) { --bd: var(--stat-1-border); --bg-top: var(--stat-1-bg-top); --bg-bottom: var(--stat-1-bg-bottom); }
     .stat:nth-child(2) { --bd: var(--stat-2-border); --bg-top: var(--stat-2-bg-top); --bg-bottom: var(--stat-2-bg-bottom); }
     .stat:nth-child(3) { --bd: var(--stat-3-border); --bg-top: var(--stat-3-bg-top); --bg-bottom: var(--stat-3-bg-bottom); }
+    .stat:nth-child(5) { --bd: var(--stat-5-border); --bg-top: var(--stat-5-bg-top); --bg-bottom: var(--stat-5-bg-bottom); }
     .stat:nth-child(4) { --bd: var(--stat-4-border); --bg-top: var(--stat-4-bg-top); --bg-bottom: var(--stat-4-bg-bottom); }
 
     a.stat:hover { border-color: var(--stat-border-hover); }
@@ -651,10 +655,10 @@
     .stat-icon-release circle { fill: var(--stat-icon-release); stroke: none; }
     .stat-icon-star { fill: none; }
 
-    /* Hinweis unter dem Release: hier liegt der Download */
+    /* Download-Hinweis: steht unter dem Namen des Release-Tags */
     .stat-cta {
-      display: inline-flex;
-      margin-left: 10px;
+      display: flex;
+      justify-content: var(--stat-justify);
       align-items: center;
       gap: 6px;
       color: var(--stat-cta);
@@ -690,6 +694,9 @@
       font-family: "JetBrains Mono", ui-monospace, monospace;
       font-size: .75rem;
     }
+
+    /* Kästchen mit DISCLAIMER.md / LICENSE.md: Pills untereinander, wie die Branch-Pills */
+    .legal-list { flex-direction: column; justify-content: center; align-items: var(--stat-justify); margin: auto 0; }
 
     .branch-list a:hover { border-color: var(--stat-border-hover); color: var(--stat-border-hover); }
 
@@ -1065,9 +1072,16 @@
         <span class="stat-head"><svg class="stat-icon stat-icon-star" viewBox="0 0 16 16" aria-hidden="true"><defs><linearGradient id="star-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd84d"></stop><stop offset="1" stop-color="#f5a623"></stop></linearGradient></defs><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" fill="url(#star-grad)" stroke="var(--stat-icon-star-edge)" stroke-width=".8" stroke-linejoin="round"></path></svg><span class="stat-k" id="label-stars">Stars</span></span>
         <strong id="stars-value">…</strong>
       </a>
+      <div class="stat" id="stat-legal">
+        <div class="branch-list legal-list">
+          <a href="https://github.com/flobb2K/custom-turnbinds-config/blob/main/DISCLAIMER.md">DISCLAIMER.md</a>
+          <a href="https://github.com/flobb2K/custom-turnbinds-config/blob/main/LICENSE.md">LICENSE.md</a>
+        </div>
+      </div>
       <a class="stat" id="stat-release" href="https://github.com/flobb2K/custom-turnbinds-config/releases">
-        <span class="stat-head"><svg class="stat-icon stat-icon-release" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 7V3.25c0-.83.67-1.5 1.5-1.5H7c.4 0 .78.16 1.06.44l6.2 6.2M1.75 7.1l4.6 4.6"></path><path d="M9.4 11.4h5.4M8.9 14.4h4.4"></path><circle cx="5" cy="5" r=".6"></circle></svg><span class="stat-k" id="label-release">Latest release</span><span class="stat-cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path></svg><span id="release-cta">Download here!</span></span></span>
+        <span class="stat-head"><svg class="stat-icon stat-icon-release" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 7V3.25c0-.83.67-1.5 1.5-1.5H7c.4 0 .78.16 1.06.44l6.2 6.2M1.75 7.1l4.6 4.6"></path><path d="M9.4 11.4h5.4M8.9 14.4h4.4"></path><circle cx="5" cy="5" r=".6"></circle></svg><span class="stat-k" id="label-release">Latest release</span></span>
         <strong id="release-value">…</strong>
+        <span class="stat-cta"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path></svg><span id="release-cta">Download here!</span></span>
       </a>
       <div class="stat">
         <span class="stat-head"><svg class="stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 3.25a2.25 2.25 0 1 1 3 2.122V6A2.5 2.5 0 0 1 10 8.5H6a1 1 0 0 0-1 1v1.128a2.251 2.251 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.5 0v1.836A2.493 2.493 0 0 1 6 7h4a1 1 0 0 0 1-1v-.628A2.25 2.25 0 0 1 9.5 3.25Zm-6 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Zm8.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM4.25 12a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"></path></svg><span class="stat-k" id="label-branches">Branches</span></span>
