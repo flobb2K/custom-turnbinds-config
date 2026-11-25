@@ -70,7 +70,7 @@ If you have tinkered with Counter-Strike configs before and want to add more fea
 7. For convenience, I recommend binding the exec command to a key: `bind "[key]" "exec turnbinds\exec.cfg"`
 8. You can also add `exec turnbinds\exec.cfg` to your `autoexec.cfg` file.
 
-<img width="2443" height="1440" alt="preview_screenshot" src="https://github.com/user-attachments/assets/909ba2ed-3c54-452e-949f-35ad0302100b" />
+<img width="2160" height="1440" alt="preview_screenshot" src="https://github.com/user-attachments/assets/86c1bc19-dbad-441e-8e74-61ae4351ca24" />
 
 >[!NOTE]
 >Your console **will not show** the confirmation text at startup **if you use** the autoexec method.
