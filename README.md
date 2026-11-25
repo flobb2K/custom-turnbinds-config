@@ -86,15 +86,9 @@ If you have tinkered with Counter-Strike configs before and want to add more fea
 ### The drawback
 Since `cl_yawspeed` and `cl_pitchspeed` do not actually exist as convars in-game, this config "emulates" them by modifying the `turnleft`/`turnright` and `turnup`/`turndown` commands. The downside is that you cannot change the turn speed while you are turning. For a turn speed change to take effect, you need to briefly stop turning and then start turning again.
 
-## Special Thanks to INSPECTRO from Cybershoke for helping me figure some of this stuff out.
-<img width="4100" height="475" alt="banner_shoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
+## Special Thanks
+- to INSPECTRO from Cybershoke
+
+## Cybershoke
+<img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
 If you want to surf in CS2, I highly recommend doing so on the Cybershoke servers. They offer a long list of features and actually playtest their maps, unlike some other server providers. The leaderboards are also very competitive.
-
-## Coming Soon
-- Steam Guide
-- Russian Language Version
-
-
-
-
-
