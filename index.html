@@ -192,6 +192,7 @@
       --card-heading-align: left;			/*	Feature-Kästchen: ###-Überschrift left / center / right	*/
       --card-text-align: justify;			/*	Feature-Kästchen: übriger Inhalt justify (Blocksatz) / left / center / right	*/
       --content-text-align: var(--card-text-align);	/*	How to use + Vergleich (Pro/Contra): Inhalt justify (Blocksatz) / left / center / right	*/
+      --stat-valign: center;				/*	Live-Zeile: Inhalt senkrecht flex-start (oben) / center / flex-end (unten)	*/
       --stat-align: center;				/*	Live-Zeile: Text left / center / right	*/
       --stat-justify: center;				/*	Live-Zeile: Überschrift mit Symbol und Branch-Pills flex-start / center / flex-end (passend zu oben)	*/
       --stat-icon: var(--stat-label);			/*	Symbole vor STARS / BRANCHES / LATEST RELEASE / LAST CHANGE	*/
@@ -296,6 +297,11 @@
 
 	/*	Anleitung 		*/
 	  
+      --step-border: var(--line);			/*	Rahmen um jeden Schritt	*/
+      --step-bg-top: var(--stat-4-bg-top);		/*	Hintergrund der Schritte oben (wie das Branches-Kästchen)	*/
+      --step-bg-bottom: var(--stat-4-bg-bottom);	/*	Hintergrund der Schritte unten (wie das Branches-Kästchen)	*/
+      --step-linemap-opacity: var(--stat-linemap-opacity);	/*	Stärke des Linienmusters in den Schritten	*/
+      --step-gap: 4px;					/*	Senkrechter Abstand zwischen den Schritten	*/
       --step-bg: var(--surface-2);			/*	Kreis mit der Schrittnummer	*/
       --step-text: var(--muted);			/*	Zahl im Kreis				*/
       --shot-border: var(--line);			/*	Rahmen um Screenshots		*/
@@ -648,7 +654,7 @@
     .stat-k { color: var(--stat-label); }
 
     /* Kopfzeile eines Kästchens: GitHub-Symbol + Beschriftung */
-    .stat { text-align: var(--stat-align); }
+    .stat { text-align: var(--stat-align); justify-content: var(--stat-valign); }
     .stat-head { display: flex; align-items: center; justify-content: var(--stat-justify); gap: 7px; white-space: nowrap; }
     .stat-icon { flex: none; width: 15px; height: 15px; fill: var(--stat-icon); }
     .stat-icon-release { fill: none; stroke: var(--stat-icon-release); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -830,10 +836,11 @@
     .howto-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 28px;
+      gap: var(--feature-gap);
       align-items: start;
     }
 
+    .howto-main > :first-child { margin-top: 0; }
     .howto-side > :first-child { margin-top: 0; }
     .howto-side > :last-child { margin-bottom: 0; }
 
@@ -844,8 +851,31 @@
       grid-template-columns: auto minmax(0, 1fr);
       gap: 12px;
       align-items: start;
-      margin: 0 0 12px;
+      margin: 0 0 var(--step-gap);
+      padding: 8px 12px;
+      position: relative;
+      isolation: isolate;
+      background: linear-gradient(180deg, var(--step-bg-top), var(--step-bg-bottom));
+      border: 1px solid var(--step-border);
+      border-radius: 10px;
     }
+
+    /* Linienmuster (linemap.png) hinter dem Text der Schritte */
+    .steps li::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: inherit;
+      background-image: var(--linemap-image);
+      background-size: var(--linemap-size);
+      background-repeat: repeat;
+      mix-blend-mode: var(--linemap-blend);
+      opacity: var(--step-linemap-opacity);
+    }
+
+    .steps li:last-child { margin-bottom: 0; }
 
     .step-n {
       display: grid;
@@ -1068,7 +1098,7 @@
       Live-Zeile. (Sterne, Branches, Release, Änderungsdatum).
     -->
     <section class="live" id="live" aria-busy="true">
-      <a class="stat" id="stat-stars" href="https://github.com/flobb2K/custom-turnbinds-config/stargazers">
+      <a class="stat" id="stat-stars" href="https://github.com/flobb2K/custom-turnbinds-config">
         <span class="stat-head"><svg class="stat-icon stat-icon-star" viewBox="0 0 16 16" aria-hidden="true"><defs><linearGradient id="star-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd84d"></stop><stop offset="1" stop-color="#f5a623"></stop></linearGradient></defs><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z" fill="url(#star-grad)" stroke="var(--stat-icon-star-edge)" stroke-width=".8" stroke-linejoin="round"></path></svg><span class="stat-k" id="label-stars">Stars</span></span>
         <strong id="stars-value">…</strong>
       </a>
@@ -1266,7 +1296,11 @@
       let text = String(raw);
       text = text.replace(/<img\b[^>]*\/?>/gi, (tag) => keep(sanitizeImg(tag)));
       text = text.replace(/<\/?ins>/gi, (tag) => keep(tag.charAt(1) === "/" ? "</ins>" : "<ins>"));
-      text = text.replace(/`([^`]+)`/g, (_, code) => keep("<code>" + formatCode(code) + "</code>"));
+      // Windows-Pfade (mit \\) beginnen eine neue Zeile, wenn davor Text steht.
+      text = text.replace(/`([^`]+)`/g, (_, code, offset) => {
+        const lead = offset > 0 && code.indexOf("\\") !== -1 ? "<br>" : "";
+        return keep(lead + "<code>" + formatCode(code) + "</code>");
+      });
       text = text.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (whole, label, url) => {
         const safe = sanitizeUrl(url);
         if (!safe) return whole;
