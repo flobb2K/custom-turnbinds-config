@@ -91,4 +91,4 @@ Since `cl_yawspeed` and `cl_pitchspeed` do not actually exist as convars in-game
 
 ## Cybershoke
 <img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
-If you want to surf in CS2, I highly recommend doing so on the Cybershoke servers. They offer a long list of features and actually playtest their maps, unlike some other server providers. The leaderboards are also very competitive.
+If you want to surf in CS2, I highly recommend Cybershoke. Their servers come with plenty of features, their maps are properly playtested, and the leaderboards are highly competitive.
