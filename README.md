@@ -87,7 +87,8 @@ Wenn du schon einmal an Counter-Strike-Configs getüftelt hast und selbst weiter
 Da `cl_yawspeed` und `cl_pitchspeed` im Spiel nicht tatsächlich als Convars existieren, „emuliert“ diese Config sie, indem sie die Befehle `turnleft`/`turnright` und `turnup`/`turndown` verändert. Der Nachteil ist, dass du die Drehgeschwindigkeit nicht ändern kannst, während du dich drehst. Damit eine Änderung der Drehgeschwindigkeit wirksam wird, musst du die Drehung kurz unterbrechen und danach neu beginnen.
 
 ## Besonderer Dank
-- an INSPECTRO von Cybershoke
+- an INSPECTRO von Cybershoke für seine Tipps zu den `cl_yawspeed`/`cl_pitchspeed` Befehlen
+- an violetto für das Korrekturlesen der russischen Version
 
 ## Cybershoke
 <img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
