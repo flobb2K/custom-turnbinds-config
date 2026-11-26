@@ -87,7 +87,8 @@ Hold-to-Activate-бинды **нужно удерживать**, чтобы из
 Поскольку `cl_yawspeed` и `cl_pitchspeed` на самом деле не существуют в игре как convar-переменные, конфиг «эмулирует» их, изменяя команды `turnleft`/`turnright` и `turnup`/`turndown`. Из-за этого нельзя изменить скорость поворота, пока вы поворачиваетесь. Чтобы изменение скорости вступило в силу, нужно ненадолго прекратить поворот, а затем начать его снова.
 
 ## Особая благодарность
-- INSPECTRO из Cybershoke
+- INSPECTRO из Cybershoke — за советы по командам `cl_yawspeed`/`cl_pitchspeed`
+- violetto — за вычитку русской версии
 
 ## Cybershoke
 <img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
