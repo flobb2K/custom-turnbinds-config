@@ -87,7 +87,8 @@ If you have tinkered with Counter-Strike configs before and want to add more fea
 Since `cl_yawspeed` and `cl_pitchspeed` do not actually exist as convars in-game, this config "emulates" them by modifying the `turnleft`/`turnright` and `turnup`/`turndown` commands. The downside is that you cannot change the turn speed while you are turning. For a turn speed change to take effect, you need to briefly stop turning and then start turning again.
 
 ## Special Thanks
-- to INSPECTRO from Cybershoke
+- to INSPECTRO from Cybershoke for his advice on the `cl_yawspeed`/`cl_pitchspeed` commands
+- to violetto for proofreading the Russian version
 
 ## Cybershoke
 <img width="4100" height="475" alt="banner_cybershoke_anthrazit" src="https://github.com/user-attachments/assets/01df9424-7de2-40b0-8295-f4221597aebe" />
